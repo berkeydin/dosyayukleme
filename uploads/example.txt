@@ -1,0 +1,5 @@
+ İsim    Yaş   Şehir
+Ahmet      25İstanbul
+Ayşe       30Ankara
+Mehmet     22İzmir
+

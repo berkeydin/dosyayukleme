@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+      <h1 class="text-2xl font-bold mb-4 flex justify-center">
+        Dosya Yükleyin
+      </h1>
+      <form
+        action="/uploader"
+        method="POST"
+        enctype="multipart/form-data"
+        class="mb-4"
+      >
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <label
+            for="file-upload"
+            class="cursor-pointer bg-white text-black border-2 border-black p-2 rounded-lg hover:bg-black hover:text-white mr-4 pl-8 pr-8 relative"
+          >
+            Dosya Seçin
+            <input
+              id="file-upload"
+              type="file"
+              name="file"
+              multiple
+              class="hidden"
+              onchange="updateFileName(this)"
+            />
+          </label>
+          <div id="file-name-display" class="ml-4"></div>
+        </div>
+        <input
+          type="submit"
+          value="Yükle"
+          class="cursor-pointer bg-white text-black border-2 border-black p-2 rounded-lg hover:bg-black hover:text-white pl-8 pr-8"
+        />
+      </div>
+      
+      
+
+    <script>
+      function updateFileName(input) {
+        var fileNames = [];
+        for (var i = 0; i < input.files.length; i++) {
+          fileNames.push(input.files[i].name);
+        }
+        document.getElementById("file-name-display").innerText =
+          fileNames.join(", ");
+      }
+    </script>
+  </body>
+</html>
